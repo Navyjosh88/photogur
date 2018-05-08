@@ -17,7 +17,7 @@ class PicturesController < ApplicationController
 
   # GET /pictures/new
   def new
-    @picture = current_user.picture.build
+    @picture = current_user.pictures.build
   end
 
   # GET /pictures/1/edit
