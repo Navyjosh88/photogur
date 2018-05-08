@@ -1,15 +1,15 @@
-<!-- <%= pluralize(@comments.count, "comment") %> -->
+<%= pluralize(@comments.count, "comment") %>
 
 <% @comments.each do |comment| %>
   <p><b><%= comment.user.email %></b></p>
   <p><%= comment.content %></p>
 
-  <%= if current_user == comment.user %>
+  <% if current_user == comment.user %>
     <%= link_to "Delete Comment", [comment.picture, comment], method: :delete %>
     <%= link_to "Edit Comment", edit_picture_comment_path(comment.picture, comment) %>
   <% end %>
 <% end %>
 
-<% if user_signed_in?%>
+<% if user_signed_in? %>
   <%= render 'comments/form' %>
 <% end %>
